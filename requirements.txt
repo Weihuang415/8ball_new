@@ -1,0 +1,4 @@
+google_api_python_client==2.97.0
+Requests==2.31.0
+smbus==1.1.post2
+yt_dlp==2023.7.6
