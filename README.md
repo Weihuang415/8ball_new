@@ -19,7 +19,7 @@
 - enable I2C in raspberry config
 - check your smbus (mine is 11)
 - install the example python file
-  - be careful about the file path of the mpu6050 module --> from mpu6050 import mpu6050
+ > **NOTE** be careful about the file path of the mpu6050 module --> from mpu6050 import mpu6050
 
 **Install *mpu 6050 accelerometer* library:**
 
@@ -31,6 +31,25 @@
 Interface Option:
 
     sudo raspi-congif
+    
+test if you get the i2c
+    
+    sudo raspi-config nonint get_i2c
+
+detect i2c address
+    
+    sudo i2cdetect -y 11
+    
+    /* Outcome
+    0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+    00:                         -- -- -- -- -- -- -- -- 
+    10: -- -- -- -- -- UU -- -- -- -- -- -- -- -- -- -- 
+    20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- -- 
+    70: -- -- -- -- -- -- -- --*/
 
 ### youtube API ###
 
