@@ -11,38 +11,44 @@ pip3 install --upgrade yt-dlp
 - pmpu6050-raspberrypi
 - requests
 - pynput
+- python3-smbus (apt install)
 
-> pip install -r requirements.txt
+> Install python packages using **apt** install and **pip** install
 
-> sudo apt install python3-smbus
-
-
+    pip install -r requirements.txt
+    sudo apt install python3-smbus
+    
 ### MPU 6050 ###
 - enable I2C in raspberry config
 - check your smbus (mine is 11)
-- install the example package
+- install the example python file
+  - be careful about the file path of the mpu6050 module --> from mpu6050 import mpu6050
 
-  > sudo apt install python3-smbus
-   
-   > pip install mpu6050-raspberrypi
+> Install **mpu 6050 accelerometer** library
 
-! be careful about the file path of the mpu6050 module #from mpu6050 import mpu6050
+    sudo apt install python3-smbus
+    pip install mpu6050-raspberrypi
+
 
 
 ### youtube API ###
-- Install the googleapiclient package** 
+> Install the googleapiclient package 
 
-  > pip install google-api-python-client
+    pip install google-api-python-client
 
 
 ### yt_dlp ###
-- Install the youtube_dlp package**
+> Install the youtube_dlp package
 
-  > pip install yt-dlp
+    pip install yt-dlp
 
 
 ### VLC media player ###
-- install the vlc package (32 bits)
+> Install the vlc package (32 bits)
+
+    pip install python-vlc
+
+    
 
   > using 'pip install python-vlc'
 
