@@ -1,6 +1,6 @@
 google-api-python-client
 yt-dlp
 python-vlc
-pmpu6050-raspberrypi
+mpu6050-raspberrypi
 requests
 pynput
