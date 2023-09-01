@@ -4,10 +4,10 @@
 **python packages:**
 - google-api-python-client
 - yt-dlp
-- python-vlc
-- pmpu6050-raspberrypi
+- python-vlc 
+- mpu6050-raspberrypi
 - requests
-- pynput
+- pynput (python3 required)
 - python3-smbus (apt install)
   
 **Install python packages using *apt & pip* install:**
