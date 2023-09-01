@@ -88,7 +88,8 @@ detect i2c address:
 ### yoututbe download video ###
 
 **Install the youtube_dlp package:**
-https://github.com/yt-dlp/yt-dlp#download-options
+
+*Options: https://github.com/yt-dlp/yt-dlp#download-options*
     
     pip install yt-dlp
 
@@ -99,8 +100,5 @@ https://github.com/yt-dlp/yt-dlp#download-options
 
     pip install python-vlc
     sudo apt install vlc
-
-Set up the password before connecting to the server
-
 
 Set up the password before connecting to the server
