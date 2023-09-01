@@ -98,7 +98,7 @@ https://github.com/yt-dlp/yt-dlp#download-options
 **Install the vlc package:**
 
     pip install python-vlc
-		sudo apt install vlc
+    sudo apt install vlc
 
 Set up the password before connecting to the server
 
