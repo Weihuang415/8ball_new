@@ -1,5 +1,31 @@
 # 8ball
 
+**Operating System:** 
+- Debian GNU/Linux 11 (bullseye)
+- Raspberry Pi Zero W 2
+  - username: pi
+  - password: new8ball
+  - hostname: new8ball
+
+**Install git and python3:**
+
+	  sudo apt-get update
+	  sudo apt-get install git
+	  sudo apt install python3
+
+
+## HyperPixel 2.0" Round Drivers for Raspberry Pi 4 ##
+https://shop.pimoroni.com/products/hyperpixel-round?variant=39381081882707
+- Installing / Uninstalling
+First, clone this GitHub repository branch to your Pi:
+
+		git clone https://github.com/pimoroni/hyperpixel2r
+- Then run the installer to install:
+
+		cd hyperpixel2r
+		sudo ./install.sh
+
+
 ## Requirements ##
 **python packages:**
 - google-api-python-client
@@ -14,6 +40,7 @@
 
     pip install -r requirements.txt
     sudo apt install python3-smbus
+		sudo apt install vlc
     
 ### MPU 6050 ###
 - enable I2C in raspberry config
@@ -32,11 +59,11 @@ Interface Option:
 
     sudo raspi-congif
     
-test if you get the i2c
+test if you get the i2c:
     
     sudo raspi-config nonint get_i2c
 
-detect i2c address
+detect i2c address:
     
     sudo i2cdetect -y 11
     
@@ -61,15 +88,19 @@ detect i2c address
 ### yoututbe download video ###
 
 **Install the youtube_dlp package:**
-
+https://github.com/yt-dlp/yt-dlp#download-options
+    
     pip install yt-dlp
 
 
 ### VLC media player ###
 
-**Install the vlc package (32 bits):**
+**Install the vlc package:**
 
     pip install python-vlc
-    sudo apt install libdvd-pkg libdvdnav4 && sudo dpkg-reconfigure libdvd-pkg
+		sudo apt install vlc
+
+Set up the password before connecting to the server
 
 
+Set up the password before connecting to the server
