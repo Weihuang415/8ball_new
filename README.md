@@ -1,5 +1,5 @@
 # 8ball
- 
+
 ## Requirements ##
 **python packages:**
 - google-api-python-client
@@ -27,7 +27,6 @@
     pip install mpu6050-raspberrypi
 
 
-
 ### youtube API ###
 
 **Install the googleapiclient package:** 
@@ -35,7 +34,7 @@
     pip install google-api-python-client
 
 
-### yt_dlp ###
+### yoututbe download video ###
 
 **Install the youtube_dlp package:**
 
