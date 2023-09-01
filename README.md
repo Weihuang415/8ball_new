@@ -25,7 +25,12 @@
 
     sudo apt install python3-smbus
     pip install mpu6050-raspberrypi
+    
+### Enable I2C ###
 
+Interface Option:
+
+    sudo raspi-congif
 
 ### youtube API ###
 
@@ -46,4 +51,5 @@
 **Install the vlc package (32 bits):**
 
     pip install python-vlc
+    sudo apt install libdvd-pkg libdvdnav4
 
