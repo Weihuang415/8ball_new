@@ -51,5 +51,6 @@ Interface Option:
 **Install the vlc package (32 bits):**
 
     pip install python-vlc
-    sudo apt install libdvd-pkg libdvdnav4
+    sudo apt install libdvd-pkg libdvdnav4 && sudo dpkg-reconfigure libdvd-pkg
+
 
