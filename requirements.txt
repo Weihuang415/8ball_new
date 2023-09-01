@@ -1,4 +1,11 @@
-google_api_python_client==2.97.0
-Requests==2.31.0
-smbus==1.1.post2
-yt_dlp==2023.7.6
+google-api-python-client
+yt-dlp
+python-vlc
+pmpu6050-raspberrypi
+requests
+pynput
+
+# pip install -r requirements.txt
+sudo apt install python3-smbus
+
+
