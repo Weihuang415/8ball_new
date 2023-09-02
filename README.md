@@ -9,9 +9,9 @@
 
 **Install git and python3:**
 
-	  sudo apt-get update
-	  sudo apt-get install git
-	  sudo apt install python3
+    sudo apt-get update
+    sudo apt-get install git
+    sudo apt install python3
 
 
 ## HyperPixel 2.0" Round Drivers for Raspberry Pi 4 ##
@@ -40,7 +40,7 @@ First, clone this GitHub repository branch to your Pi:
 
     pip install -r requirements.txt
     sudo apt install python3-smbus
-		sudo apt install vlc
+    sudo apt install vlc
     
 ### MPU 6050 ###
 - enable I2C in raspberry config
