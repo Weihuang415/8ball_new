@@ -123,9 +123,10 @@ def vlc_open():
 
 
 def play_video_process(pickedVid):  # VideoDefault/default2.mp4 #VideoDL/{pickedVid}
-    vlc_cmd = f'"C:/Program Files (x86)/VideoLAN/VLC/vlc.exe" --repeat --extraintf=http --http-host=127.0.0.1 --http-port=8080 --http-password=asdf {os.path.abspath(pickedVid)}'
+    # vlc_cmd = f'"C:/Program Files (x86)/VideoLAN/VLC/vlc.exe" --repeat --extraintf=http --http-host=127.0.0.1 --http-port=8080 --http-password=asdf {os.path.abspath(pickedVid)}'
+    
+    vlc_cmd = f"cvlc {os.path.abspath(pickedVid)} --fullscreen --repeat --extraintf=http --http-host=127.0.0.1 --http-port=8080 --http-password=asdf"
     os.system(vlc_cmd)
-    # vlc_cmd = f"cvlc {os.path.abspath(pickedVid)} --fullscreen --repeat --extraintf=http --http-host=127.0.0.1 --http-port=8080 --http-password=asdf"
     print("Video_process", pickedVid)
 
 
