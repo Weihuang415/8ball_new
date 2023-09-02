@@ -2,7 +2,9 @@
 
 **Operating System:** 
 - Debian GNU/Linux 11 (bullseye)
+  - Rapberry Pi OS (64-bit)
 - Raspberry Pi Zero W 2
+  
   - username: pi
   - password: new8ball
   - hostname: new8ball
@@ -11,11 +13,14 @@
 
     sudo apt-get update
     sudo apt-get install git
-    sudo apt install python3
+    sudo apt install python3 (raspberry pi os buster version is python2.7 default)
 
 
 ## HyperPixel 2.0" Round Drivers for Raspberry Pi 4 ##
-https://shop.pimoroni.com/products/hyperpixel-round?variant=39381081882707
+- **HyperPixel Product Page:** [HyperPixel 2.0" Round](https://shop.pimoroni.com/products/hyperpixel-round?variant=39381081882707)  
+- **HyperPixel Drivers Original Github:** [HyperPixel 2.0" Round Drivers for Raspberry Pi 4](https://github.com/pimoroni/hyperpixel2r)
+- **Official Tutorial:** [Getting Started with HyperPixel 4.0](https://learn.pimoroni.com/article/getting-started-with-hyperpixel-4)
+
 - Installing / Uninstalling
 First, clone this GitHub repository branch to your Pi:
 
@@ -24,6 +29,8 @@ First, clone this GitHub repository branch to your Pi:
 
 		cd hyperpixel2r
 		sudo ./install.sh
+  
+> **NOTE:** In the [this YouTube tutorial](https://youtu.be/OkNh8wXZtR0), he said, "The Pimoroni HyperPixel2r display drivers are for **Raspberry Pi OS Buster** only", but Raspberry Pi OS Buster doesn’t work with newest vlc player version(3.0.18)!!
 
 
 ## Requirements ##
@@ -33,37 +40,62 @@ First, clone this GitHub repository branch to your Pi:
 - python-vlc 
 - mpu6050-raspberrypi
 - requests
-- pynput (python3 required)
+- pynput (python3 & X server required)
 - python3-smbus (apt install)
   
-**Install python packages using *apt & pip* install:**
+**Install python packages using *apt & pip***
 
     pip install -r requirements.txt
     sudo apt install python3-smbus
     sudo apt install vlc
+
     
-### MPU 6050 ###
+### MPU 6050 accelerometer ###
 - enable I2C in raspberry config
 - check your smbus (mine is 11)
 - install the example python file
- > **NOTE** be careful about the file path of the mpu6050 module --> from mpu6050 import mpu6050
+ > **NOTE:** be careful about the file path of the mpu6050 module --> from mpu6050 import mpu6050
 
-**Install *mpu 6050 accelerometer* library:**
+
+**Install mpu 6050 library:**
 
     sudo apt install python3-smbus
     pip install mpu6050-raspberrypi
-    
+
+
+### Kalman Filter ###
+
+- **[Kalman Filter for mpu6050 Library:](https://github.com/rocheparadox/Kalman-Filter-Python-for-mpu6050/tree/master)** Since the detected value is "angular velocity", I use Kalman Filter to get the "angle" value.
+
+> **NOTE:** The Kalman Filter Library is modified as no while loop in 8ball.
+
+
+
 ### Enable I2C ###
 
-Interface Option:
+**Interface Option:**
 
     sudo raspi-congif
     
-test if you get the i2c:
+**To do an I2C scan on a Raspberry Pi:**  
+
+    sudo apt-get install i2c-tools
+
+**Test if you get the i2c:**  
+
+*0 —> I2C is on*  
+*1 —> I2C is off*  
     
     sudo raspi-config nonint get_i2c
 
-detect i2c address:
+**detect i2c address:**
+
+> [**How to Scan and Detect I2C Addresses**](https://learn.adafruit.com/scanning-i2c-addresses/raspberry-pi)
+> Run the following command to list all available I2C buses:
+
+    ls /dev/i2c-*
+    
+**Here use bus 11**
     
     sudo i2cdetect -y 11
     
@@ -77,6 +109,7 @@ detect i2c address:
     50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
     60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- -- 
     70: -- -- -- -- -- -- -- --*/
+
 
 ### youtube API ###
 
@@ -102,3 +135,19 @@ detect i2c address:
     sudo apt install vlc
 
 Set up the password before connecting to the server
+
+
+
+## Save log in txt file ##
+    
+**Redirections for both standard error (stderr) and standard output (stdout):**
+    
+    python main.py > output.log 2>&1
+    
+**Create a file named output.log**
+    
+    touch output.log
+
+
+
+
