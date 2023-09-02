@@ -258,32 +258,32 @@ async def main_loop():
                 canFlip = False  # Set it to False after playing the videos
         await asyncio.sleep(0.04)
 
+# keyboard test only
+# def on_press(key):
+#     try:
+#         print('alphanumeric key {0} pressed'.format(
+#             key.char))
+#         sensor_detect(key.char)
+#     except AttributeError:
+#         print('special key {0} pressed'.format(
+#             key))
 
-def on_press(key):
-    try:
-        print('alphanumeric key {0} pressed'.format(
-            key.char))
-        sensor_detect(key.char)
-    except AttributeError:
-        print('special key {0} pressed'.format(
-            key))
 
-
-def on_release(key):
-    print('{0} released'.format(
-        key))
-    if key == keyboard.Key.esc:
-        # Stop listener
-        return False
+# def on_release(key):
+#     print('{0} released'.format(
+#         key))
+#     if key == keyboard.Key.esc:
+#         # Stop listener
+#         return False
 
 
 if __name__ == '__main__':
     vlc_open()
     searchResult = youtube_search()
 
-    listener = keyboard.Listener(
-        on_press=on_press,
-        on_release=on_release)
-    listener.start()
+    # listener = keyboard.Listener(
+    #     on_press=on_press,
+    #     on_release=on_release)
+    # listener.start()
 
     asyncio.run(main_loop())
