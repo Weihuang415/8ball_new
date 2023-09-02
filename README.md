@@ -9,6 +9,10 @@
   - password: new8ball
   - hostname: new8ball
 
+**Notion**
+
+- [NightLight Labs Notion](https://www.notion.so/nightlight/Divin8tion-4ac8bdd7f42d4dee9b319b0bb917112e)
+
 **Install git and python3:**
 
     sudo apt-get update
@@ -91,6 +95,7 @@ First, clone this GitHub repository branch to your Pi:
 **detect i2c address:**
 
 > [**How to Scan and Detect I2C Addresses**](https://learn.adafruit.com/scanning-i2c-addresses/raspberry-pi)
+
 > Run the following command to list all available I2C buses:
 
     ls /dev/i2c-*
@@ -111,20 +116,34 @@ First, clone this GitHub repository branch to your Pi:
     70: -- -- -- -- -- -- -- --*/
 
 
-### youtube API ###
+
+### YouTube API ###
 
 **Install the googleapiclient package:** 
 
     pip install google-api-python-client
+    
+> [YouTube Data API | Videos: list](https://developers.google.com/youtube/v3/docs/videos/list)
 
 
-### yoututbe download video ###
+
+
+### YouTube download video ###
 
 **Install the youtube_dlp package:**
 
-*Options: https://github.com/yt-dlp/yt-dlp#download-options*
-    
     pip install yt-dlp
+
+> **[yt-dlp Official Github](https://github.com/yt-dlp/yt-dlp)**
+
+> **Options:** https://github.com/yt-dlp/yt-dlp#download-options
+
+> **[Filtering Formats:](https://github.com/yt-dlp/yt-dlp#filtering-formats)**
+You can filter the video formats by putting a condition in brackets, as in `-f "best[height=720]"` (or `-f "[filesize>10M]"` since filters without a selector are interpreted as `best`).
+
+>**NOTE:** Downloading (yt-dlp) is separate from Searching(YouTube API). 
+The yt-dlp filter will not apply to API searching but only downloading part. The filter finds the videos that have been searched and see if that satisfy the filter
+
 
 
 ### VLC media player ###
@@ -134,7 +153,9 @@ First, clone this GitHub repository branch to your Pi:
     pip install python-vlc
     sudo apt install vlc
 
-Set up the password before connecting to the server
+- Set up the password before connecting to the server
+  - User name: None
+  - Password: asdf
 
 
 
