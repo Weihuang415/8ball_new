@@ -4,7 +4,7 @@ import glob
 import os
 
 # from pynput.keyboard import Key, Controller
-from pynput import keyboard
+#from pynput import keyboard
 
 import requests
 import multiprocessing
@@ -205,7 +205,10 @@ def delete_video():
 
         cachedVids.pop(0)  # remove from the list
         print(f"{cachedVids[0]} --- first video in cachedVids.")
-
+        
+sys.path.insert(0, '/home/pi/8ball_new/mpu6050')
+from mpu6050.AngleOMeter_noLoop import angle_read
+import time
 
 def sensor_detect(key):
     global screenUp
