@@ -4,7 +4,7 @@ import glob
 import os
 
 # from pynput.keyboard import Key, Controller
-#from pynput import keyboard
+# from pynput import keyboard
 
 import requests
 import multiprocessing
@@ -24,11 +24,11 @@ YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
 
 pickedVid = ''
-cachedVids = glob.glob('VideoDL/*.mp4')
+cachedVids = glob.glob('videoDL/*.mp4')
 # cachedVids = [os.path.basename(file) for file in glob.glob('VideoDL/*.mp4')] #good-looking filename without VideoDL/
 
 print("cachedVids:", cachedVids)
-output_dir = 'VideoDL'
+output_dir = 'videoDL'
 
 played = False
 playing = False
@@ -88,7 +88,7 @@ async def download_vid():
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([url])
             global cachedVids
-            cachedVids = sorted(glob.glob('VideoDL/*.mp4'))
+            cachedVids = sorted(glob.glob('videoDL/*.mp4'))
 
     else:
         print("No suitable videos found.")
@@ -110,7 +110,7 @@ class MyLogger(object):
 def my_hook(d):
     if d['status'] == 'finished':
         global cachedVids
-        cachedVids = sorted(glob.glob('*.mp4'))
+        cachedVids = sorted(glob.glob('videoDL/*.mp4'))
         print('Done downloading, now converting ...')
         # print("vids: " + str(cachedVids))
 
@@ -123,10 +123,10 @@ def vlc_open():
 
 
 def play_video_process(pickedVid):  # VideoDefault/default2.mp4 #VideoDL/{pickedVid}
-    # vlc_cmd = f'"C:/Program Files (x86)/VideoLAN/VLC/vlc.exe" --repeat --extraintf=http --http-host=127.0.0.1 --http-port=8080 --http-password=asdf {os.path.abspath(pickedVid)}'
-    
+    #vlc_cmd = f'"C:/Program Files (x86)/VideoLAN/VLC/vlc.exe" --repeat --extraintf=http --http-host=127.0.0.1 --http-port=8080 --http-password=asdf {os.path.abspath(pickedVid)}'
     vlc_cmd = f"cvlc {os.path.abspath(pickedVid)} --fullscreen --repeat --extraintf=http --http-host=127.0.0.1 --http-port=8080 --http-password=asdf"
     os.system(vlc_cmd)
+
     print("Video_process", pickedVid)
 
 
@@ -141,7 +141,7 @@ def play_next():
     global playing
     global played
     global pickedVid
-    cachedVids = glob.glob('VideoDL/*.mp4')
+    cachedVids = glob.glob('videoDL/*.mp4')
 
     if cachedVids:
         playing = True
@@ -180,7 +180,7 @@ def stop_playing():
             print(f'Failed to stop the picked video. Status code: {response.status_code}')
 
         # Play default video
-        defaultVid = 'VideoDefault\Default2.mp4'
+        defaultVid = 'videoDF\default.mp4'
         params = {'command': 'in_play', 'input': os.path.abspath(defaultVid)}
         response = requests.get(play_url, headers=headers, params=params)
         if response.status_code == 200:
@@ -197,7 +197,7 @@ def stop_playing():
 
 
 def delete_video():
-    cachedVids = glob.glob('VideoDL/*.mp4')
+    cachedVids = glob.glob('videoDL/*.mp4')
     if played:
         print(f"{cachedVids[0]} --- Removing the played video.")
 
@@ -206,7 +206,8 @@ def delete_video():
 
         cachedVids.pop(0)  # remove from the list
         print(f"{cachedVids[0]} --- first video in cachedVids.")
-        
+
+import sys
 sys.path.insert(0, '/home/pi/8ball_new/mpu6050')
 from mpu6050.AngleOMeter_noLoop import angle_read
 import time
@@ -259,7 +260,7 @@ async def main_loop():
                 canFlip = False  # Set it to False after playing the videos
         await asyncio.sleep(0.04)
 
-# keyboard test only
+
 # def on_press(key):
 #     try:
 #         print('alphanumeric key {0} pressed'.format(
